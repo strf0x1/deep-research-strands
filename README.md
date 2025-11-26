@@ -12,6 +12,7 @@ This agent leverages Minimax M2 (via Strands) and Exa API to conduct deep, compr
 - **Minimax M2**: Powered by the Minimax M2 model for reasoning and planning.
 - **Exa Neural Search**: Utilizes Exa for high-quality, semantic web search.
 - **Comprehensive Reports**: Generates detailed, academic-quality research reports with inline citations.
+- **Interleaved Thinking**: The agent can think step by step and explain its reasoning. See more [here](INTERLEAVED_THINKING.md).
 
 ## Setup
 
