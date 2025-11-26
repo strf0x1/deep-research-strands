@@ -57,3 +57,74 @@ events = recurse_event_loop(
     agent=agent, invocation_state=invocation_state, structured_output_context=structured_output_context
 )
 ```
+
+## How This Works in the Deep Research Agent
+
+In this project, interleaved thinking creates a powerful multi-layered context pipeline that flows from research planning through to the final report.
+
+### The Research Context Flow
+
+When a research query is submitted, the supervisor agent's `agent.messages` builds up like this:
+
+```
+1. [User Message] Original research query
+   ↓
+2. [Assistant Message] Supervisor's thinking + planning_agent_tool call
+   ↓
+3. [User Message] Tool result: 8-12 optimized subqueries with metadata
+   ↓
+4. [Assistant Message] Supervisor's thinking + web_search_retriever_tool call
+   ↓
+5. [User Message] Tool result: Synthesized findings from 150-200+ search results
+   ↓
+6. [Assistant Message] Comprehensive research report (supervisor's synthesis)
+```
+
+### Why This Architecture is Powerful
+
+**1. Evidence-Grounded Reasoning**
+- The supervisor doesn't hallucinate or rely solely on training data
+- It has access to actual URLs, titles, and excerpts from recent web searches
+- Multiple independent sources per research angle validate findings
+- Inline citations are backed by real results in the context
+
+**2. Multi-Dimensional Coverage via Hierarchical Planning**
+The context includes:
+- **Planning Layer**: 8-12 subqueries covering core concepts, latest developments, historical context, technical implementations, expert opinions, academic research, market analysis, future implications, challenges, and comparisons
+- **Search Layer**: 20 results per high-priority subquery, plus `find_similar()` expansion for discovery
+- **Synthesis Layer**: Another LLM pass organizes findings by theme with connections across sources
+
+Each layer builds on the previous one without losing information—it's structured, not flattened.
+
+**3. No State Drift = Perfect Continuity**
+Because the entire conversation history (reasoning + requests + results) stays in `agent.messages`:
+- The supervisor remembers exactly which subqueries it decomposed the problem into
+- It sees which results came from which searches
+- It can reason about gaps or redundancies across sources
+- It connects dots across different research angles without confusion
+
+**4. Synthesis Without Information Loss**
+The data pipeline is optimized for quality:
+- **Planning Tool**: Takes raw query → generates subqueries with content type, time period, priority, domain filters
+- **Search Tool**: Executes searches → discovers similar content → synthesizes into organized findings (up to 6000 tokens)
+- **Supervisor**: Receives pre-organized, thematic findings (not raw results) → writes report
+
+Each step filters and structures information hierarchically, making it more useful without inflating context unnecessarily.
+
+### Context Window Efficiency
+
+A typical research flow uses:
+- Planning results: ~1-2 KB (structured subquery metadata)
+- Search synthesis: ~4-6 KB (organized findings summary)
+- **Total structured context: ~10-15 KB**
+
+This is well within even smaller context windows. Minimax M2 has ~200K context, meaning this approach uses <1% of available space. The magic is that the data is organized hierarchically—each layer filters and prepares information for the next, preventing information bloat while maintaining full traceability.
+
+### The Result
+
+The supervisor writes reports that are:
+- **Comprehensive**: Multi-angle coverage from the hierarchical planning
+- **Recent**: Based on current web search results, not stale training data
+- **Cited**: Every claim is backed by URLs in the context history
+- **Coherent**: Interleaved thinking preserves reasoning throughout, preventing contradictions
+- **Verifiable**: Developers can inspect `agent.messages` to see exactly what the supervisor saw and when it saw it
