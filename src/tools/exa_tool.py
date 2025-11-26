@@ -86,6 +86,16 @@ class ExaTool:
                         first_result = result['results'][0]
                         print(f"[DEBUG] First Result: {first_result.get('title')} ({first_result.get('publishedDate')})")
                         print(f"[DEBUG] First Result URL: {first_result.get('url')}")
+                        
+                        # Show content retrieval status
+                        text_content = first_result.get('text', '')
+                        highlights_content = first_result.get('highlights', [])
+                        print(f"[DEBUG] First Result - Text Content Length: {len(text_content)} chars")
+                        print(f"[DEBUG] First Result - Highlights Count: {len(highlights_content)}")
+                        if text_content:
+                            print(f"[DEBUG] First Result - Text Preview: {text_content[:200]}...")
+                        if highlights_content:
+                            print(f"[DEBUG] First Result - First Highlight: {highlights_content[0]}")
                     else:
                         print("[DEBUG] No results found.")
                     

@@ -1,57 +1,14 @@
-"""Supervisor Agent using Strands Agents SDK."""
+"""Supervisor Agent using Strands Agents SDK - Orchestrator for deep research."""
 
-from typing import Dict, Any, List
-import json
 from rich.console import Console
-from strands import Agent, tool
+from strands import Agent
 from strands.models.openai import OpenAIModel
 from src.utils.config import Config
-from src.tools.planning_tool import PlanningTool
-from src.tools.search_tool import SearchTool
+from src.agents.planning_agent import planning_agent_tool
+from src.agents.search_agent import web_search_retriever_tool
 
 # Initialize rich console
 console = Console()
-
-# Initialize tools
-planning_tool_instance = PlanningTool()
-search_tool_instance = SearchTool()
-
-@tool
-def planning_agent_tool(research_query: str) -> str:
-    """
-    Generates Exa-optimized subqueries for a research topic.
-    Takes a research query and returns JSON with 3-5 subqueries optimized for neural search.
-    """
-    if Config.DEBUG:
-        console.print(f"\n[bold yellow][DEBUG] planning_agent_tool called with:[/bold yellow] {research_query}")
-    result = planning_tool_instance.execute(research_query)
-    if Config.DEBUG:
-        console.print(f"[dim][DEBUG] planning_agent_tool returning:[/dim] {result[:200]}...")
-    return result
-
-@tool
-def web_search_retriever_tool(research_query: str, subqueries_json: Any) -> str:
-    """
-    Executes web searches using Exa API for provided subqueries and synthesizes findings.
-    Returns organized research findings with sources.
-    """
-    if Config.DEBUG:
-        console.print(f"\n[bold yellow][DEBUG] web_search_retriever_tool called[/bold yellow]")
-        console.print(f"[dim]Query: {research_query}[/dim]")
-    
-    # Handle both string and dict/list inputs
-    if isinstance(subqueries_json, (dict, list)):
-        if Config.DEBUG:
-            console.print(f"[dim][DEBUG] subqueries_json received as {type(subqueries_json).__name__}, converting to string[/dim]")
-        subqueries_json = json.dumps(subqueries_json)
-    else:
-        if Config.DEBUG:
-            console.print(f"[dim]Subqueries JSON: {str(subqueries_json)[:200]}...[/dim]")
-        
-    result = search_tool_instance.retrieve(research_query, subqueries_json)
-    if Config.DEBUG:
-        console.print(f"[dim][DEBUG] web_search_retriever_tool returning:[/dim] {result[:200]}...")
-    return result
 
 class SupervisorAgent:
     """
@@ -115,21 +72,16 @@ class SupervisorAgent:
 
         structure_to_use = report_structure if report_structure else default_structure
 
-        self.system_prompt = f"""You are a deep research coordinator specializing in comprehensive, academic-quality research reports. Your goal is to produce thorough, well-structured, in-depth analysis.
+        self.system_prompt = f"""You are a deep research orchestrator specializing in comprehensive, academic-quality research reports. Your goal is to produce thorough, well-structured, in-depth analysis by coordinating specialized agents.
 
-You have access to the following tools:
+You have access to specialized agents:
 
-1. planning_agent_tool - Breaks down research queries into 8-12 Exa-optimized subqueries
-   - Input: research_query (string)
-   - Returns: JSON with optimized subqueries covering multiple dimensions
-
-2. web_search_retriever_tool - Searches the web using Exa and synthesizes findings
-   - Input: research_query (string), subqueries_json (string)
-   - Returns: Comprehensive organized findings with sources
+1. planning_agent_tool - A specialized planning agent that breaks down research queries into 8-12 Exa-optimized subqueries
+2. web_search_retriever_tool - A specialized search agent that executes web searches and synthesizes findings
 
 Research Workflow:
-1. Call planning_agent_tool with the user's research query to generate comprehensive subqueries
-2. Call web_search_retriever_tool with the research query and subqueries to gather extensive information
+1. Use planning_agent_tool to decompose the user's research query into comprehensive subqueries
+2. Use web_search_retriever_tool with the research query and subqueries to gather extensive information
 3. Synthesize a COMPREHENSIVE research report (15-30 pages equivalent) with the following structure:
 
 {structure_to_use}

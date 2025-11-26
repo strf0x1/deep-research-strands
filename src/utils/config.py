@@ -23,6 +23,9 @@ class Config:
     # Exa API Configuration
     EXA_API_KEY = os.getenv("EXA_API_KEY")
     EXA_BASE_URL = "https://api.exa.ai"
+    EXA_HIGH_PRIORITY_RESULTS = int(os.getenv("EXA_HIGH_PRIORITY_RESULTS", "20"))
+    EXA_NORMAL_PRIORITY_RESULTS = int(os.getenv("EXA_NORMAL_PRIORITY_RESULTS", "15"))
+    EXA_SIMILAR_RESULTS = int(os.getenv("EXA_SIMILAR_RESULTS", "5"))
 
     # Debug Configuration
     DEBUG = os.getenv("DEBUG", "false").lower() == "true"
