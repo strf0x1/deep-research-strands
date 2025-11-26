@@ -42,6 +42,14 @@ All configuration is done through environment variables in your `.env` file:
 - `EXA_NORMAL_PRIORITY_RESULTS` - Number of results for normal-priority queries (default: `15`)
 - `EXA_SIMILAR_RESULTS` - Number of similar content results per query (default: `5`)
 
+#### NCI (Narrative Credibility Index) Scoring
+The agent includes optional NCI scoring to detect potential narrative manipulation and psyop campaigns in search results:
+- `NCI_SCORING_ENABLED` - Enable NCI scoring analysis (`true` or `false`, default: `false`)
+- `NCI_SCORE_THRESHOLD` - Minimum credibility score to accept sources (0-20, default: `6`)
+- `NCI_TOP_N_SOURCES` - Number of top search results to analyze with NCI scoring (default: `5`)
+
+**About NCI Scoring**: The Narrative Credibility Index is a 20-criterion framework for detecting manipulation tactics in text. It analyzes sources for indicators such as emotional manipulation, uniform messaging, logical fallacies, tribal division, and other psychological techniques commonly used in coordinated disinformation campaigns. Each analyzed source receives an aggregate score (0-20) and a risk level (LOW, MODERATE, HIGH, CRITICAL) to help identify potentially unreliable or manipulative content.
+
 **Example `.env` file:**
 ```bash
 # API Keys (Required)
@@ -53,6 +61,12 @@ DEBUG=false
 EXA_HIGH_PRIORITY_RESULTS=20
 EXA_NORMAL_PRIORITY_RESULTS=15
 EXA_SIMILAR_RESULTS=5
+
+# NCI (Narrative Credibility Index) Scoring - Optional
+# Enable NCI scoring to detect potential manipulation in sources
+NCI_SCORING_ENABLED=false
+NCI_SCORE_THRESHOLD=6
+NCI_TOP_N_SOURCES=5
 ```
 
 ## Usage
