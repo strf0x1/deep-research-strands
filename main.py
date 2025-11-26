@@ -38,17 +38,30 @@ def print_banner():
     ))
 
 
-def run_research(query: str):
+def run_research(query: str, output_file: str = None, structure_file: str = None):
     """
     Run research for a given query.
 
     Args:
         query: Research question or topic
+        output_file: Optional path to save the report
+        structure_file: Optional path to a file containing custom report structure
     """
     try:
+        # Load custom structure if provided
+        report_structure = None
+        if structure_file:
+            try:
+                with open(structure_file, 'r') as f:
+                    report_structure = f.read()
+                console.print(f"[dim]Loaded custom report structure from {structure_file}[/dim]")
+            except Exception as e:
+                console.print(f"[bold red]Error reading structure file:[/bold red] {e}")
+                sys.exit(1)
+
         # Initialize supervisor
         console.print("\n[dim]Initializing Strands Supervisor Agent...[/dim]")
-        supervisor = SupervisorAgent()
+        supervisor = SupervisorAgent(report_structure=report_structure)
 
         # Conduct research
         result = supervisor.research(query)
@@ -61,6 +74,15 @@ def run_research(query: str):
         # Display markdown-formatted result with colors
         console.print(Markdown(result))
         console.print(f"\n[bold cyan]{'=' * 80}[/bold cyan]")
+
+        # Save to file if requested
+        if output_file:
+            try:
+                with open(output_file, 'w') as f:
+                    f.write(result)
+                console.print(f"\n[bold green]✓ Report saved to:[/bold green] {output_file}")
+            except Exception as e:
+                console.print(f"[bold red]Error saving report:[/bold red] {e}")
 
     except Exception as e:
         console.print(f"\n[bold red]✗ Error:[/bold red] {e}")
@@ -79,6 +101,18 @@ def main():
         type=str,
         help='Research query'
     )
+    
+    parser.add_argument(
+        '-o', '--output',
+        type=str,
+        help='Output file path for the report (e.g., report.md)'
+    )
+
+    parser.add_argument(
+        '-s', '--structure',
+        type=str,
+        help='Path to a text file defining custom report structure'
+    )
 
     args = parser.parse_args()
 
@@ -92,7 +126,7 @@ def main():
     print_banner()
 
     if args.query:
-        run_research(args.query)
+        run_research(args.query, args.output, args.structure)
     else:
         # Interactive mode
         while True:

@@ -38,3 +38,14 @@ uv run main.py
 ```bash
 uv run main.py -q "Your research query here"
 ```
+
+**Save to File**:
+```bash
+uv run main.py -q "Your research query here" --output report.md
+```
+
+**Custom Report Structure**:
+You can define a custom structure for the report by creating a text file (e.g., `structure.txt`) and passing it with the `--structure` flag.
+```bash
+uv run main.py -q "Your research query here" --structure structure.txt
+```

@@ -58,26 +58,10 @@ class SupervisorAgent:
     Main supervisor agent that coordinates research workflow using Strands Agents.
     """
 
-    def __init__(self):
+    def __init__(self, report_structure: str = None):
         """Initialize Supervisor Agent."""
-        self.system_prompt = """You are a deep research coordinator specializing in comprehensive, academic-quality research reports. Your goal is to produce thorough, well-structured, in-depth analysis.
-
-You have access to the following tools:
-
-1. planning_agent_tool - Breaks down research queries into 8-12 Exa-optimized subqueries
-   - Input: research_query (string)
-   - Returns: JSON with optimized subqueries covering multiple dimensions
-
-2. web_search_retriever_tool - Searches the web using Exa and synthesizes findings
-   - Input: research_query (string), subqueries_json (string)
-   - Returns: Comprehensive organized findings with sources
-
-Research Workflow:
-1. Call planning_agent_tool with the user's research query to generate comprehensive subqueries
-2. Call web_search_retriever_tool with the research query and subqueries to gather extensive information
-3. Synthesize a COMPREHENSIVE research report (15-30 pages equivalent) with the following structure:
-
-## Required Report Structure:
+        
+        default_structure = """## Required Report Structure:
 
 ### Executive Summary (3-5 paragraphs)
    - Overview of research scope
@@ -127,7 +111,28 @@ Research Workflow:
 
 ### Sources and Citations
    - Comprehensive list of all sources with URLs
-   - Organized by category or theme
+   - Organized by category or theme"""
+
+        structure_to_use = report_structure if report_structure else default_structure
+
+        self.system_prompt = f"""You are a deep research coordinator specializing in comprehensive, academic-quality research reports. Your goal is to produce thorough, well-structured, in-depth analysis.
+
+You have access to the following tools:
+
+1. planning_agent_tool - Breaks down research queries into 8-12 Exa-optimized subqueries
+   - Input: research_query (string)
+   - Returns: JSON with optimized subqueries covering multiple dimensions
+
+2. web_search_retriever_tool - Searches the web using Exa and synthesizes findings
+   - Input: research_query (string), subqueries_json (string)
+   - Returns: Comprehensive organized findings with sources
+
+Research Workflow:
+1. Call planning_agent_tool with the user's research query to generate comprehensive subqueries
+2. Call web_search_retriever_tool with the research query and subqueries to gather extensive information
+3. Synthesize a COMPREHENSIVE research report (15-30 pages equivalent) with the following structure:
+
+{structure_to_use}
 
 ## Quality Guidelines:
 - Be EXTREMELY thorough and detailed - aim for 5-10x more content than a typical report
