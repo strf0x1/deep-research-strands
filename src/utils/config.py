@@ -30,6 +30,11 @@ class Config:
     # Debug Configuration
     DEBUG = os.getenv("DEBUG", "false").lower() == "true"
 
+    # NCI (Narrative Credibility Index) Scoring Configuration
+    NCI_SCORING_ENABLED = os.getenv("NCI_SCORING_ENABLED", "false").lower() == "true"
+    NCI_SCORE_THRESHOLD = int(os.getenv("NCI_SCORE_THRESHOLD", "6"))
+    NCI_TOP_N_SOURCES = int(os.getenv("NCI_TOP_N_SOURCES", "5"))
+
     @classmethod
     def validate(cls):
         """Validate that all required API keys are set."""

@@ -6,6 +6,7 @@ from strands import Agent, tool
 from strands.models.openai import OpenAIModel
 from src.utils.config import Config
 from src.tools.exa_tool import ExaTool
+from src.tools.nci_scoring_tool import NCIScoringTool
 from rich.console import Console
 
 console = Console()
@@ -74,6 +75,9 @@ def execute_searches(subqueries: List[Dict[str, Any]], exa: ExaTool) -> List[Dic
         List of search results for each subquery
     """
     all_results = []
+    nci_scorer = None
+    if Config.NCI_SCORING_ENABLED:
+        nci_scorer = NCIScoringTool()
     
     for subquery in subqueries:
         if isinstance(subquery, str):
@@ -117,6 +121,18 @@ def execute_searches(subqueries: List[Dict[str, Any]], exa: ExaTool) -> List[Dic
         # Format results
         formatted_results = exa.format_results(search_results)
         
+        # Score top N sources if NCI scoring is enabled
+        nci_scores = []
+        if nci_scorer and formatted_results:
+            sources_to_score = formatted_results[:Config.NCI_TOP_N_SOURCES]
+            for source in sources_to_score:
+                score = nci_scorer.score_text(
+                    text=source.get("text", "") or source.get("summary", ""),
+                    url=source.get("url", ""),
+                    title=source.get("title", ""),
+                )
+                nci_scores.append(score)
+        
         # Find similar content for high-priority queries
         similar_results = []
         if formatted_results and priority <= 3:
@@ -133,6 +149,7 @@ def execute_searches(subqueries: List[Dict[str, Any]], exa: ExaTool) -> List[Dic
             "priority": priority,
             "results": formatted_results,
             "similar_results": similar_results,
+            "nci_scores": nci_scores,
         })
     
     return all_results
@@ -153,8 +170,15 @@ def format_search_context(search_results: List[Dict[str, Any]]) -> str:
     for result_set in search_results:
         subquery = result_set.get("subquery", "")
         results = result_set.get("results", [])
+        nci_scores = result_set.get("nci_scores", [])
         
         context_parts.append(f"\n## Subquery: {subquery}")
+        
+        # Create mapping of URLs to NCI scores
+        nci_by_url = {}
+        for score in nci_scores:
+            if score.get("url"):
+                nci_by_url[score["url"]] = score
         
         for i, result in enumerate(results[:10], 1):  # Top 10 per subquery
             title = result.get("title", "No title")
@@ -164,6 +188,15 @@ def format_search_context(search_results: List[Dict[str, Any]]) -> str:
             
             context_parts.append(f"\n### Result {i}: {title}")
             context_parts.append(f"URL: {url}")
+            
+            # Include NCI score if available
+            if url in nci_by_url:
+                nci_data = nci_by_url[url]
+                if "error" not in nci_data:
+                    agg_score = nci_data.get("aggregate_score", 0)
+                    risk_level = nci_data.get("risk_level", "UNKNOWN")
+                    context_parts.append(f"NCI Score: {agg_score}/20 ({risk_level})")
+            
             if highlights:
                 context_parts.append(f"Highlights: {', '.join(highlights[:5])}")
             if text_excerpt:
@@ -218,11 +251,18 @@ def web_search_retriever_tool(research_query: str, subqueries_json: Any) -> str:
         # Format context for the agent
         context = format_search_context(search_results)
         
+        # Build NCI context if enabled
+        nci_context = ""
+        if Config.NCI_SCORING_ENABLED:
+            nci_display = _compile_nci_report(search_results)
+            if nci_display:
+                nci_context = f"\n\n## Source Credibility Analysis (NCI Scores)\n{nci_display}"
+        
         # Create synthesis prompt
         synthesis_prompt = f"""Research Query: {research_query}
 
 Search Results:
-{context}
+{context}{nci_context}
 
 Organize these findings into a comprehensive, detailed summary. Include:
 1. Key findings organized by topic/theme with extensive details
@@ -239,10 +279,17 @@ Be thorough and detailed - this will feed into a comprehensive research report."
         response = search_agent(synthesis_prompt)
         result_text = str(response)
         
+        # Score the synthesis if NCI is enabled
+        synthesis_metadata = ""
+        if Config.NCI_SCORING_ENABLED:
+            nci_scorer = NCIScoringTool()
+            synthesis_score = nci_scorer.score_synthesis(result_text)
+            synthesis_metadata = f"\n\n[NCI Synthesis Analysis: {synthesis_score.get('aggregate_score', 0)}/20 - {synthesis_score.get('risk_level', 'UNKNOWN')}]"
+        
         if Config.DEBUG:
             console.print(f"[dim][DEBUG] Search Agent returning:[/dim] {result_text[:200]}...")
         
-        return result_text
+        return result_text + synthesis_metadata
         
     except json.JSONDecodeError as e:
         error_msg = f"Error parsing subqueries: {str(e)}"
@@ -252,4 +299,56 @@ Be thorough and detailed - this will feed into a comprehensive research report."
         error_msg = f"Error in retrieval: {str(e)}"
         console.print(f"[bold red]{error_msg}[/bold red]")
         return error_msg
+
+
+def _compile_nci_report(search_results: List[Dict[str, Any]]) -> str:
+    """
+    Compile NCI scores into a readable report format.
+    
+    Args:
+        search_results: Search results with NCI scores
+        
+    Returns:
+        Formatted NCI report string
+    """
+    all_scores = []
+    for result_set in search_results:
+        nci_scores = result_set.get("nci_scores", [])
+        all_scores.extend(nci_scores)
+    
+    if not all_scores:
+        return ""
+    
+    # Filter out errors and sort by score
+    valid_scores = [s for s in all_scores if "error" not in s]
+    if not valid_scores:
+        return ""
+    
+    valid_scores.sort(key=lambda x: x.get("aggregate_score", 0), reverse=True)
+    
+    # Build report
+    report_lines = []
+    report_lines.append(f"Total sources scored: {len(valid_scores)}")
+    
+    # Distribution
+    distribution = {"LOW": 0, "MODERATE": 0, "HIGH": 0, "CRITICAL": 0}
+    for score in valid_scores:
+        risk = score.get("risk_level", "UNKNOWN")
+        if risk in distribution:
+            distribution[risk] += 1
+    
+    report_lines.append(f"Risk distribution - LOW: {distribution['LOW']}, MODERATE: {distribution['MODERATE']}, HIGH: {distribution['HIGH']}, CRITICAL: {distribution['CRITICAL']}")
+    
+    # Flagged sources (score >= threshold)
+    flagged = [s for s in valid_scores if s.get("aggregate_score", 0) >= Config.NCI_SCORE_THRESHOLD]
+    if flagged:
+        report_lines.append("\nFlagged sources (potential manipulation indicators):")
+        for i, source in enumerate(flagged[:10], 1):  # Top 10 flagged
+            score = source.get("aggregate_score", 0)
+            risk = source.get("risk_level", "UNKNOWN")
+            title = source.get("title", "Unknown")[:60]
+            summary = source.get("summary", "")
+            report_lines.append(f"  {i}. [{score}/20 - {risk}] {title}")
+    
+    return "\n".join(report_lines)
 
