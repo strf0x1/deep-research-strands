@@ -30,10 +30,10 @@ This agent leverages Minimax M2 (via Strands) and Exa API to conduct deep, compr
 
 **Interactive Mode**:
 ```bash
-python main.py
+uv run main.py
 ```
 
 **Single Query**:
 ```bash
-python main.py -q "Your research query here"
+uv run main.py -q "Your research query here"
 ```
