@@ -1,6 +1,6 @@
 # Deep Research Agent (Strands Version)
 
-This is a re-implementation of the Deep Research Agent using the AWS Strands Agents SDK.
+This is a re-implementation of the M2 MinimaxDeep Research Agent found [here](https://github.com/dair-ai/m2-deep-research) using the AWS Strands Agents SDK. I just like working with this agent framework because the code is clean and it is easy to extend.
 
 ## Overview
 
