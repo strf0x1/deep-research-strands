@@ -69,7 +69,7 @@ NCI_SCORE_THRESHOLD=6
 NCI_TOP_N_SOURCES=5
 ```
 
-## Usage
+## Example Usage
 
 **Interactive Mode**:
 ```bash
@@ -79,6 +79,11 @@ uv run main.py
 **Single Query**:
 ```bash
 uv run main.py -q "Your research query here"
+```
+
+**Load Query from File**:
+```bash
+uv run main.py -f prompt.txt
 ```
 
 **Save to File**:
@@ -91,3 +96,24 @@ You can define a custom structure for the report by creating a text file (e.g., 
 ```bash
 uv run main.py -q "Your research query here" --structure structure.txt
 ```
+
+**Multi-Line Prompt File Input**
+If you have a large, specific prompt, you can use a file:
+```bash
+uv run main.py -f complex_requirements.txt
+```
+
+**Generate LLM-friendly Library Docs for Your Code Editor**
+You can use deep research strands to comb the latest docs for a library or language for your ai code editor:
+```bash
+uv run main.py -f practical_code_editor_prompt.txt --structure library_readme_structure.txt -o uv_practical.md
+```
+
+TODO
+* silently fails and dumps final llm output error to doc. for example, last run failed on tool execution #2 web_search but no idea why
+* use uv scripts to implement a more streamlined ai code editor doc generator
+* bring rest of repo up to uv standards 
+* add ruff
+* make this a cli tool, would be so nice to have in any term im in
+* add an MCP server for integration into the exp-001 mcp repo
+* add cost counter?
