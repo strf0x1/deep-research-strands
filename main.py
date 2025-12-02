@@ -38,7 +38,7 @@ def print_banner():
     ))
 
 
-def run_research(query: str, output_file: str = None, structure_file: str = None):
+def run_research(query: str, output_file: str = None, structure_file: str = None, prompt_file: str = None):
     """
     Run research for a given query.
 
@@ -46,8 +46,19 @@ def run_research(query: str, output_file: str = None, structure_file: str = None
         query: Research question or topic
         output_file: Optional path to save the report
         structure_file: Optional path to a file containing custom report structure
+        prompt_file: Optional path to a file containing the research query/prompt
     """
     try:
+        # Load prompt from file if provided
+        if prompt_file:
+            try:
+                with open(prompt_file, 'r') as f:
+                    query = f.read()
+                console.print(f"[dim]Loaded research prompt from {prompt_file}[/dim]")
+            except Exception as e:
+                console.print(f"[bold red]Error reading prompt file:[/bold red] {e}")
+                sys.exit(1)
+        
         # Load custom structure if provided
         report_structure = None
         if structure_file:
@@ -113,6 +124,12 @@ def main():
         type=str,
         help='Path to a text file defining custom report structure'
     )
+    
+    parser.add_argument(
+        '-f', '--prompt-file',
+        type=str,
+        help='Path to a text file containing the research query/prompt'
+    )
 
     args = parser.parse_args()
 
@@ -125,8 +142,13 @@ def main():
 
     print_banner()
 
-    if args.query:
-        run_research(args.query, args.output, args.structure)
+    # Validate query/prompt input
+    if args.query and args.prompt_file:
+        console.print(f"[bold red]✗ Error:[/bold red] Cannot use both --query and --prompt-file")
+        sys.exit(1)
+
+    if args.query or args.prompt_file:
+        run_research(args.query or "", args.output, args.structure, args.prompt_file)
     else:
         # Interactive mode
         while True:

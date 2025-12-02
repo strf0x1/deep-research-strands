@@ -1,0 +1,185 @@
+[
+  {
+    "text": "SHOCKING: Breakthrough Cancer Cure HIDDEN by Big Pharma - SHARE BEFORE DELETED!\n\nA revolutionary cancer treatment has been discovered by independent researchers, but THEY don't want you to know! Pharmaceutical companies are actively suppressing this cure to protect their multi-billion dollar profits.\n\nBillions of people could be saved, but instead the medical establishment refuses to acknowledge this research. Doctors who have tried the treatment report 100% success rates, but mainstream media won't cover it.\n\nThis is the most important health discovery in human history. EVERY person needs to see this. Those who benefit from cancer's continuation are working overtime to silence the truth.\n\nDON'T WAIT! Forward this to everyone you know before it disappears. The truth is being suppressed RIGHT NOW.",
+    "url": "https://example-fringe.com/hidden-cancer-cure",
+    "title": "SHOCKING! Big Pharma HIDING 100% Cancer Cure - THEY Don't Want You To Know!",
+    "ground_truth_label": "manipulative",
+    "ground_truth_score": 19,
+    "source_dataset": "synthetic_nci_demo",
+    "metadata": {
+      "primary_criteria": ["Emotional Manipulation", "Suppression of Dissent", "Call for Urgent Action", "Manufactured Outrage"],
+      "topic": "health_misinformation",
+      "type": "conspiracy_theory"
+    }
+  },
+  {
+    "text": "Water Quality Standards: A Technical Overview\n\nThis comprehensive analysis examines water quality regulations established by the EPA over the past 50 years.\n\nMethodology:\n- Analysis of EPA water quality data from 1973-2024\n- Comparison with international standards (WHO, EU, Canada)\n- Review of 2,847 water systems across 48 states\n- Statistical analysis of contamination trends\n\nKey Findings:\n\n1. Lead Levels: Decreased 99.2% since 1973\n   - 1973: 15.1 μg/L average\n   - 2024: 0.11 μg/L average\n   - Mechanism: Lead pipe replacement and treatment improvements\n\n2. E. coli Contamination:\n   - Increased detection due to better testing, not increased occurrence\n   - Actual contamination incidents: down 87%\n   - Treatment effectiveness: 99.7%\n\n3. Remaining Challenges:\n   - Rural systems: 12% below full compliance (primarily funding)\n   - Aging infrastructure: $500B in needed updates\n   - Climate-related challenges: increased flooding risks\n\nConclusion:\n\nCurrent EPA standards are based on peer-reviewed epidemiological research and provide effective protection. Specific areas needing improvement: rural infrastructure funding and climate resilience measures.\n\nLimitations: This analysis focuses on federal standards; state and local variations exist.\n\nReferences: Available upon request with full data citations.",
+    "url": "https://example-academic.org/water-quality-analysis",
+    "title": "Water Quality Standards: 50-Year Technical Analysis",
+    "ground_truth_label": "credible",
+    "ground_truth_score": 2,
+    "source_dataset": "synthetic_nci_demo",
+    "metadata": {
+      "characteristics": ["balanced", "evidence-based", "methodology_clear", "limitations_acknowledged"],
+      "topic": "water_quality",
+      "type": "technical_analysis"
+    }
+  },
+  {
+    "text": "CRISIS ALERT: Chemical Company Scandal Surfaces EXACTLY When CEO Facing Court\n\nIn a stunning coincidence, revelations about chemical contamination have emerged just days before the CEO's trial begins. Is this timing a coincidence? Many experts are asking questions.\n\nThe story first appeared on social media, then was picked up by multiple outlets using identical language: \"unprecedented disaster,\" \"avoidable tragedy,\" and \"shocking negligence.\" Remarkably, all coverage emphasizes the same angles.\n\nWhat's NOT being discussed:\n- Alternative explanations for the contamination\n- Other companies' similar practices\n- Historical precedent\n- The company's actual safety record improvements\n\nInstead, coverage focuses on victims' emotional testimonies - heartbreaking stories that dominate airtime while avoiding technical details.\n\nMeanwhile, a competitor company offering cleanup services has hired prominent PR firms and been endorsed by the same influencers pushing the narrative.\n\nEveryone on social media is using #ChemicalJustice and demand immediate government intervention. Those questioning the narrative are being labeled \"corporate shills.\"\n\nOne thing is clear: this story mirrors previous environmental scandals that were used to pass sweeping legislation benefiting specific industries.\n\nACT NOW! Sign this petition demanding immediate government action. Don't think - just sign!",
+    "url": "https://example-sensationalist.net/chemical-scandal-alert",
+    "title": "SCANDAL! Corporate Conspiracy Exposed - Timeline Looks SUSPICIOUS",
+    "ground_truth_label": "manipulative",
+    "ground_truth_score": 20,
+    "source_dataset": "synthetic_nci_demo",
+    "metadata": {
+      "primary_criteria": ["Timing", "Uniform Messaging", "Missing Information", "Simplistic Narratives", "Emotional Manipulation", "Financial/Political Gain", "Suppression of Dissent", "Call for Urgent Action", "Historical Parallels"],
+      "topic": "corporate_scandal",
+      "type": "coordinated_narrative"
+    }
+  },
+  {
+    "text": "Policy Reform: Examining Multiple Perspectives on Environmental Regulation\n\nThis analysis presents evidence for and against proposed environmental policies, acknowledging legitimate disagreements.\n\nArguments Supporting Stricter Regulations:\n- EPA data shows measurable health benefits: $4-10 in health benefits per $1 regulatory cost\n- International comparisons: Countries with stricter standards show better health outcomes\n- Cost-benefit analysis: Long-term healthcare savings exceed implementation costs\n- Specific mechanisms: Regulations effectively reduce contaminants\n\nArguments Concerning Implementation:\n- Small business impact: 15% of small manufacturers report compliance difficulty\n- Economic transition: 23,000 jobs affected in first 5 years (though 34,000 created in new sectors)\n- Timing: Rapid implementation may be disruptive vs. phased approach\n- International competitiveness: Some manufacturers relocate to less-regulated regions\n\nBoth perspectives have merit based on different priorities:\n- Environmental protection advocates prioritize health outcomes\n- Economic efficiency advocates prioritize job stability\n- Both values are legitimate\n\nRecommended Approach:\n1. Evidence-based standards (maintain health-focused thresholds)\n2. Flexible implementation (longer timeframes for heavy industry)\n3. Support for transition (job retraining, infrastructure investment)\n4. Continuous monitoring (adjust policies as evidence evolves)\n\nConclusion:\n\nThis is not a simple \"good vs. evil\" issue. Effective policy requires acknowledging multiple legitimate perspectives and finding balanced solutions.\n\nUncertainties: Long-term economic effects depend on market adaptation rates not yet fully understood.",
+    "url": "https://example-thoughtful.org/policy-analysis-balanced",
+    "title": "Environmental Policy: Weighing Competing Interests and Evidence",
+    "ground_truth_label": "credible",
+    "ground_truth_score": 3,
+    "source_dataset": "synthetic_nci_demo",
+    "metadata": {
+      "characteristics": ["multiple_perspectives", "acknowledges_uncertainty", "evidence_based", "balanced"],
+      "topic": "environmental_policy",
+      "type": "policy_analysis"
+    }
+  },
+  {
+    "text": "YOU MUST ACT NOW OR LOSE EVERYTHING!!!\n\nThere are only TWO choices:\n\n1. SUPPORT THE PLAN - Save the environment and future generations\n2. OPPOSE THE PLAN - You hate the environment and children\n\nThere is literally NO middle ground. You must pick a side TODAY.\n\nLook at everyone on social media - THEY'RE already supporting us! Are YOU going to be left behind? This is your moment to prove you care.\n\nEvery celebrity, influencer, and \"real citizen\" is posting the same message with the exact same hashtag. Join them NOW or admit you don't care about our future.\n\nThose saying \"wait, let's research this more\" are just CORPORATE DRONES trying to delay action. Experts (who aren't actually experts in this field) agree - we need immediate donations and support.\n\nDo you want to be on the right side of history? Then SHARE THIS NOW and add the hashtag to your profile. If you don't act today, you're part of the problem.\n\nThe time for thinking is over. The time for action is NOW. Copy this message and post it everywhere. Spread the word!",
+    "url": "https://example-viral.net/false-choice-campaign",
+    "title": "Choose Your Side NOW! Support Us Or You Don't Care!",
+    "ground_truth_label": "manipulative",
+    "ground_truth_score": 17,
+    "source_dataset": "synthetic_nci_demo",
+    "metadata": {
+      "primary_criteria": ["False Dilemmas", "Bandwagon Effect", "Call for Urgent Action", "Emotional Manipulation", "Authority Overload"],
+      "topic": "activism",
+      "type": "coercive_framing"
+    }
+  },
+  {
+    "text": "Public Health Research: Vaccination Safety Study\n\nBackground:\nThis peer-reviewed study examines vaccine safety across 2.3 million patients over 8 years.\n\nMethods:\n- Randomized controlled trial design\n- Independent adverse event monitoring\n- Data verified by FDA and WHO\n- Transparent reporting of all outcomes, both positive and negative\n\nResults:\n- Safety: 99.2% rate with no serious adverse events in full dataset\n- Side effects: Mild reactions in 2.1% (arm soreness, low fever), severe in 0.03%\n- Effectiveness: 94% protection against target disease\n\nLimitations:\n- Study conducted in developed nations; results may differ in other populations\n- Long-term effects (beyond 8 years) require ongoing monitoring\n- Certain subpopulations (immunocompromised, pregnant) studied separately\n- Economic data limited to developed healthcare systems\n\nConclusion:\nEvidence supports safety and efficacy. Ongoing monitoring recommended, particularly for vulnerable populations.\n\nFunding Disclosure: Government research grant ($500K); no pharmaceutical company funding.\n\nConflict of Interest Statement: Researchers have published previous work in this field; details available.\n\nData Availability: Full dataset available at [institutional repository] for independent verification.\n\nPeer Review: This article underwent 4 rounds of independent peer review before publication.",
+    "url": "https://example-journal.org/vaccine-safety-study-2024",
+    "title": "Long-Term Vaccine Safety: Multi-Year Population Study",
+    "ground_truth_label": "credible",
+    "ground_truth_score": 1,
+    "source_dataset": "synthetic_nci_demo",
+    "metadata": {
+      "characteristics": ["peer_reviewed", "transparent", "limitations_clear", "data_available", "conflicts_disclosed"],
+      "topic": "public_health",
+      "type": "research_study"
+    }
+  },
+  {
+    "text": "DEVASTATING Report: Gloom And Doom For Your Children's Future!!!\n\nWe've compiled heartbreaking images and tragic stories. Here's what you're seeing:\n\n- Children crying (we don't explain why)\n- Dead animals (we don't explain the cause)\n- Destroyed landscapes (we don't provide context)\n- Families in tears (we loop this imagery relentlessly)\n\nThe emotional impact is overwhelming! Every news cycle emphasizes the tragedy and suffering. This is UNPRECEDENTED and SHOCKING!\n\nWhat we DON'T discuss:\n- Actual causes and mechanisms\n- How this compares to historical events\n- What's being done already\n- Realistic solutions\n- Expert opinions from relevant fields\n\nInstead, an actor (not a scientist) and a celebrity (not an environmental expert) are leading our coverage, explaining technical issues they don't understand.\n\nMeanwhile, we've looped the same tragic footage 47 times across our networks, using identical emotional language each time.\n\nCritics who point out the manipulation? Labeled as \"not caring about children\" and silenced.\n\nShare this to join the movement! Every share adds another water droplet emoji to our campaign hashtag.",
+    "url": "https://example-emotional.media/devastating-crisis-coverage",
+    "title": "HEARTBREAKING: Tragedy Unfolds - Shocking Images That Will Break Your Heart",
+    "ground_truth_label": "manipulative",
+    "ground_truth_score": 18,
+    "source_dataset": "synthetic_nci_demo",
+    "metadata": {
+      "primary_criteria": ["Emotional Manipulation", "Missing Information", "Emotional Repetition", "Authority Overload", "Suppression of Dissent", "Rapid Behavior Shifts"],
+      "topic": "environmental_crisis",
+      "type": "emotional_manipulation_campaign"
+    }
+  },
+  {
+    "text": "Healthcare Analysis: Emergency Room Wait Times and Resource Allocation\n\nExecutive Summary:\n\nThis report analyzes ER wait times across 500 hospitals over 24 months.\n\nKey Statistics:\n- Average wait time: 47 minutes\n- Variation range: 12-180 minutes (based on facility size)\n- Peak hours (6pm-midnight): average 78 minutes\n- Off-peak: average 22 minutes\n- Critical cases: <10 minute average\n- Non-urgent cases: 90-180 minutes\n\nRoot Causes:\n1. Resource allocation (45% of variance)\n   - Staffing levels correlate directly with wait times\n   - Larger facilities perform better\n\n2. Case complexity (38%)\n   - Trauma cases require extended physician time\n   - Simple cases processed quickly\n\n3. Seasonal variation (12%)\n   - Flu season increases volume\n   - Summer shows shorter waits\n\n4. Unexplained factors (5%)\n   - Variation between similar facilities suggests management differences\n\nComparison:\n- National average: 42 minutes\n- Regional average: 51 minutes\n- Our sample: 47 minutes (near average)\n\nRecommendations:\n1. Increase staffing during peak hours\n2. Improve triage efficiency\n3. Implement data tracking for continuous improvement\n4. Address facility-specific management issues\n\nLimitations:\n- Study limited to urban hospitals\n- Rural facility data incomplete\n- Data collection methods varied by hospital\n- 8% of records excluded due to inconsistency\n\nConclusion:\n\nWait times are driven primarily by resource availability and case complexity. Strategic staffing adjustments could reduce average wait times by 15-20%.",
+    "url": "https://example-health-data.org/er-analysis-2024",
+    "title": "Healthcare System Analysis: ER Wait Times and Resource Utilization",
+    "ground_truth_label": "credible",
+    "ground_truth_score": 2,
+    "source_dataset": "synthetic_nci_demo",
+    "metadata": {
+      "characteristics": ["data_driven", "limitations_acknowledged", "methodology_clear", "recommendations_practical"],
+      "topic": "healthcare",
+      "type": "systems_analysis"
+    }
+  },
+  {
+    "text": "STATISTICAL PROOF: They're Hiding the Numbers!!!\n\nLook at this dramatic statistic:\n\"Cases increased by 300%!\"\n\nShocking, right? We're presenting this number without explaining:\n- It started from a baseline of 10 cases (so 300% = 40 cases)\n- How \"cases\" are defined has changed three times\n- Better detection methods find more cases (not necessarily more disease)\n- We're comparing different time periods with different diagnostic criteria\n- No adjustment for population growth\n- No comparison to historical precedent\n\nWe also cherry-picked our data range to make the increase look dramatic:\n- If you looked at 10 years: 15% increase\n- If you looked at 50 years: 2% decrease\n- But we selected the 18-month window that looked scariest\n\nWe quote statistics without explaining calculation methods, because that would undermine the narrative.\n\nCritics who ask for methodology are dismissed as \"not understanding the science.\"\n\nBy presenting numbers out of context and using misleading comparisons, we've created emotional impact without providing understanding.",
+    "url": "https://example-misleading.info/scary-statistics-analysis",
+    "title": "ALARMING STATISTICS REVEAL SHOCKING TRENDS - Read This Now!",
+    "ground_truth_label": "manipulative",
+    "ground_truth_score": 15,
+    "source_dataset": "synthetic_nci_demo",
+    "metadata": {
+      "primary_criteria": ["Cherry-Picked Data", "Missing Information", "Logical Fallacies", "Suppression of Dissent"],
+      "topic": "data_manipulation",
+      "type": "statistical_distortion"
+    }
+  },
+  {
+    "text": "Climate Research: 30-Year Trend Analysis\n\nMethodology:\n- Temperature data from 15,000 stations globally\n- Peer-reviewed data collection methods\n- Comparison to satellite measurements (NASA, NOAA)\n- Uncertainty quantification throughout\n- Full dataset publicly available\n\nFindings:\n\n1. Temperature Trends:\n   - Global average: +1.2°C over 30 years\n   - Confidence interval: ±0.15°C\n   - Consistent across independent measurements\n   - Regional variation documented\n\n2. Contributing Factors:\n   - Natural variability: ~25% of observed change\n   - Solar activity: ~5% of observed change\n   - Greenhouse gases: ~65% of observed change\n   - Uncertainty acknowledged where data incomplete\n\n3. Limitations:\n   - Models cannot predict specific weather events (only trends)\n   - Natural variation unpredictable on short timeframes\n   - Urban heat island effects introduce bias in some measurements\n   - Some regions have sparse historical data\n\n4. Future Projections:\n   - Multiple model scenarios presented\n   - Confidence intervals shown for each scenario\n   - Ranges reflect genuine scientific uncertainty\n   - Not presented as certainties\n\nConclusion:\n\nTemperature increase is well-documented and largely attributable to greenhouse gas increases. Uncertainty acknowledged. Natural factors also contribute.\n\nImplications:\n- Requires policy consideration but should account for uncertainty\n- Both adaptation and mitigation strategies have merit\n- Some climate impacts already unavoidable; others preventable\n\nFunding: National Science Foundation (peer-reviewed competitive grant)",
+    "url": "https://example-research.org/climate-analysis-30-years",
+    "title": "Climate Science: 30-Year Trend Analysis and Uncertainty Assessment",
+    "ground_truth_label": "credible",
+    "ground_truth_score": 2,
+    "source_dataset": "synthetic_nci_demo",
+    "metadata": {
+      "characteristics": ["uncertainty_acknowledged", "multiple_factors_considered", "peer_reviewed", "data_public"],
+      "topic": "climate_science",
+      "type": "research_analysis"
+    }
+  },
+  {
+    "text": "BREAKING: Strange Timing Creates SUSPICION\n\nDid you notice? The announcement came RIGHT before the election.\n\nWe're not saying this definitively happened, but isn't the TIMING suspicious? Many people are questioning whether this is a coordinated effort.\n\nMeanwhile, everyone online is suddenly talking about it using the EXACT same phrases. All major news outlets independently adopted the same language. Unusual? Definitely worth thinking about.\n\nIn fact, this reminds us of THREE OTHER TIMES when similar narratives appeared during politically sensitive moments. We won't explain those parallels in detail, but the pattern is suspicious, isn't it?\n\nNow, a company that would benefit from this narrative has donated to media outlets covering the story. Coincidence? We'll let you decide.\n\nPeople who ask for proof are called \"conspiracy theorists.\" Why would they defend the powerful unless they're complicit?\n\nOne thing is certain: history has shown similar narratives were used to manipulate public opinion. And it's happening again. Right now.",
+    "url": "https://example-conspiratorial.net/suspicious-timing-analysis",
+    "title": "SUSPICIOUS: Timing + Language Pattern + Financial Gain = Coordinated Campaign?",
+    "ground_truth_label": "manipulative",
+    "ground_truth_score": 16,
+    "source_dataset": "synthetic_nci_demo",
+    "metadata": {
+      "primary_criteria": ["Timing", "Uniform Messaging", "Financial/Political Gain", "Logical Fallacies", "Historical Parallels"],
+      "topic": "political_narrative",
+      "type": "pattern_matching_speculation"
+    }
+  },
+  {
+    "text": "Economic Analysis: Labor Market Trends and Wage Growth\n\nData Summary:\n- Dataset: Bureau of Labor Statistics, 2014-2024\n- Sample: 50 million employment records\n- Adjusted for inflation using CPI\n\nKey Findings:\n\n1. Wage Growth by Sector:\n   - Technology: +47% (high demand, skill-based)\n   - Healthcare: +33% (demographic demand)\n   - Retail: +8% (automation, competition)\n   - Manufacturing: +12% (mixed: automation vs. shortage)\n   - Overall: +18% (above inflation: +16.4%)\n\n2. Inequality Trends:\n   - Top 10%: +32% wage growth\n   - Middle 50%: +14% wage growth\n   - Bottom 10%: +4% wage growth\n   - Widening gap documented\n\n3. Contributing Factors:\n   - Automation (positive for productivity, negative for low-skill workers)\n   - Globalization (competitive wage pressure in some sectors)\n   - Education premiums (continuing to increase)\n   - Shift toward service economy\n   - Regional variation (tech hubs showing growth, others stagnation)\n\n4. Counterbalancing Factors:\n   - Benefits improvements (healthcare, retirement contributions up)\n   - Cost of living increased slower in some regions\n   - Worker bargaining power increased post-pandemic in some sectors\n\nLimitations:\n- Data excludes informal economy\n- Geographic variation not fully captured\n- Quality of job measurement incomplete\n- Self-reported data for some categories\n\nConclusion:\n\nWage growth outpacing inflation, but with widening inequality. Both opportunity (in high-growth sectors) and concern (for displaced workers) documented.\n\nPolicy implications require balancing multiple factors: education access, automation's transition impact, global competitiveness.",
+    "url": "https://example-econ.org/wage-trends-analysis-2024",
+    "title": "Economic Analysis: Wage Trends and Labor Market Dynamics (2014-2024)",
+    "ground_truth_label": "credible",
+    "ground_truth_score": 2,
+    "source_dataset": "synthetic_nci_demo",
+    "metadata": {
+      "characteristics": ["data_source_cited", "limitations_clear", "nuanced", "balanced"],
+      "topic": "economics",
+      "type": "data_analysis"
+    }
+  },
+  {
+    "text": "EXPOSED: The Hidden Truth They Don't Want You To Know!\n\nInside sources reveal information the mainstream media refuses to cover!\n\nWhile credible experts openly discuss research, we present fringe voices labeled as \"silenced.\" When mainstream researchers counter our claims with evidence, we frame their responses as attempts at suppression.\n\nCritics of our narrative?\n- Called \"out-of-touch elites\"\n- Labeled \"corporate shills\"\n- Dismissed without addressing their actual arguments\n\nWhen academics and specialists point out flaws in our reasoning, we respond: \"They just don't understand our truth.\" \n\nWe identify opponents by group identity rather than addressing their specific points:\n- \"The scientific establishment is lying\"\n- \"Elites are controlling the narrative\"\n- \"Experts are part of the conspiracy\"\n\nInstead of debating evidence, we've built a framework where disagreement itself is evidence of conspiracy.\n\nOur supporters share content enthusiastically because the framing provides emotional satisfaction and a sense of insider knowledge. Questioning the narrative is discouraged with social pressure and group disapproval.\n\nThis approach works: supporters feel enlightened while actual evidence is irrelevant.",
+    "url": "https://example-fringe-narrative.net/truth-suppression-claims",
+    "title": "The Truth They're Hiding: How Elites Control the Narrative",
+    "ground_truth_label": "manipulative",
+    "ground_truth_score": 17,
+    "source_dataset": "synthetic_nci_demo",
+    "metadata": {
+      "primary_criteria": ["Suppression of Dissent", "Logical Fallacies", "Authority Overload"],
+      "topic": "conspiracy_narrative",
+      "type": "suppression_framing"
+    }
+  },
+  {
+    "text": "Technology Sector: AI Development and Safety Considerations\n\nBackground:\n\nArtificial Intelligence is advancing rapidly. This report examines both opportunities and genuine safety concerns, acknowledging uncertainty.\n\nPromising Applications:\n- Medical diagnosis (supporting, not replacing, doctors)\n- Scientific research acceleration\n- Accessibility improvements for disabled individuals\n- Educational personalization\n- Efficiency gains in routine tasks\n\nLegitimate Safety Concerns:\n1. Bias and Discrimination:\n   - Training data reflects historical prejudices\n   - Systems perpetuate existing inequalities\n   - Actively being studied and improved\n\n2. Job Displacement:\n   - Some jobs will become obsolete\n   - Historical precedent: previous technology disruptions managed through retraining\n   - Transition period impacts real people\n\n3. Autonomous Systems:\n   - Military applications raise genuine ethical concerns\n   - Autonomous vehicles require safety validation\n   - Accountability unclear in complex systems\n\n4. Misinformation:\n   - Deepfakes and synthetic content risks\n   - Detection methods being developed\n   - Requires regulatory attention\n\n5. Concentration of Power:\n   - Few companies control most AI\n   - Raises questions about democratic oversight\n   - Regulatory frameworks still developing\n\nUncertainties:\n- Transformative potential not fully predictable\n- Long-term employment effects unclear\n- International coordination difficult\n- Beneficial and harmful uses coexist\n\nRecommendations:\n1. Continue development with safety research\n2. Invest in affected worker support\n3. Develop regulatory frameworks with transparency\n4. International coordination on dangerous capabilities\n5. Public engagement in decisions about deployment\n\nConclusion:\n\nAI poses both significant opportunities and real risks. Neither blind enthusiasm nor paralyzed caution is justified. Balanced approach with safety research essential.",
+    "url": "https://example-tech-analysis.org/ai-development-2024",
+    "title": "Artificial Intelligence: Opportunities, Safety Concerns, and Balanced Policy",
+    "ground_truth_label": "credible",
+    "ground_truth_score": 3,
+    "source_dataset": "synthetic_nci_demo",
+    "metadata": {
+      "characteristics": ["acknowledges_both_risks_and_benefits", "uncertainty_stated", "recommendations_balanced", "practical"],
+      "topic": "technology_policy",
+      "type": "balanced_analysis"
+    }
+  }
+]
+

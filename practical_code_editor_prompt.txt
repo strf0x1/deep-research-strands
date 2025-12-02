@@ -1,0 +1,89 @@
+# Practical Code Editor Documentation Prompt
+
+Your task is to conduct focused research on the dependency management tool for python, uv, by astral generate a practical, concise markdown reference document suitable for use with AI code editors and assistants.
+
+## Research Objective
+
+Generate a single-file markdown document (3,000-6,000 words) that provides practical, hands-on documentation for developers using the tool in an IDE or code editor with AI assistance. Focus on what developers need to know to use the tool effectively in their daily workflows.
+
+## Key Guidelines
+
+1. **Practical Focus**: Prioritize what developers need to actually DO:
+   - Core features and workflows (not exhaustive API documentation)
+   - Common use cases and how to implement them
+   - Best practices and recommended patterns
+   - Quick reference commands and syntax
+
+2. **Conciseness**: Keep explanations brief but complete:
+   - One clear example per feature (not multiple variations)
+   - Short, scannable sections
+   - Code examples should be 5-15 lines, not extensive tutorials
+   - Focus on the most common 80% of use cases
+
+3. **Clarity for LLMs**: Structure for AI understanding:
+   - Provide complete, runnable code examples
+   - Show typical input and output
+   - Explain error messages and how to fix them
+   - Group related features together
+
+4. **Recency Focus**: Include recent practical changes:
+   - Latest stable version
+   - Breaking changes in recent versions
+   - New features from the last 6 months
+   - Common gotchas with current versions
+
+5. **Example-Driven**: Provide clear, practical examples:
+   - Working code snippets developers can copy
+   - Real command-line usage examples
+   - Configuration file examples
+   - Error scenarios and solutions
+
+## Source Quality
+
+Prioritize these sources (in order):
+1. Official documentation (quickstart and core features sections)
+2. Official GitHub repository (README, recent changes, common issues)
+3. Official CLI help and man pages
+4. Official examples and starter templates
+5. Recent blog posts or announcements from maintainers
+6. Community Q&A and Stack Overflow for practical patterns
+
+## Output Format
+
+Structure the document with these practical sections:
+- **Overview**: What it is and why you'd use it (1 paragraph)
+- **Installation**: How to install and verify it works
+- **Core Features**: Each major feature with working example code
+- **Common Workflows**: Step-by-step guides for typical tasks
+- **Configuration**: Key config options with examples
+- **Best Practices**: Recommended patterns and anti-patterns
+- **Troubleshooting**: Common problems and solutions
+- **Quick Reference**: Cheat sheet of essential commands
+- **Resources**: Links to official docs and examples
+
+Ensure:
+- Each code example is complete and can be run as-is
+- Commands show actual terminal usage with expected output
+- Configuration examples are realistic and copy-paste ready
+- Sections are concise but thorough (300-800 words each)
+- Technical terms are explained on first use
+
+## Handling Tools in Active Development
+
+This tool may be under rapid development with frequent updates:
+- Note the current stable version
+- Highlight features added in recent releases
+- Call out any experimental or beta features
+- Include version-specific information where relevant
+- Document the direction of the project if available
+
+## Focus Areas for This Research
+
+Target these specific practical topics:
+- Core installation and setup
+- Primary workflow examples
+- Command-line usage patterns
+- Configuration and customization
+- Integration with common tools
+- Common errors and how to fix them
+- Best practices for production use

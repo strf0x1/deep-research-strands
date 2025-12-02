@@ -1,0 +1,10 @@
+## Custom Report Structure
+
+### Summary
+- Brief overview.
+
+### Details
+- Detailed findings.
+
+### Conclusion
+- Final thoughts.
