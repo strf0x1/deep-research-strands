@@ -117,3 +117,4 @@ TODO
 * make this a cli tool, would be so nice to have in any term im in
 * add an MCP server for integration into the exp-001 mcp repo
 * add cost counter?
+* add an output token counter, so i know the estimated cost on the llm when doing a task
