@@ -1,12 +1,24 @@
 """Planning Agent - Specialized agent for query decomposition and subquery generation."""
 
+import sys
 import json
+import contextlib
 from strands import Agent, tool
 from strands.models.openai import OpenAIModel
 from src.utils.config import Config
 from rich.console import Console
 
-console = Console()
+console = Console(stderr=True)
+
+@contextlib.contextmanager
+def redirect_stdout_to_stderr():
+    """Context manager to redirect stdout to stderr for MCP compatibility."""
+    old_stdout = sys.stdout
+    try:
+        sys.stdout = sys.stderr
+        yield
+    finally:
+        sys.stdout = old_stdout
 
 # System prompt for the planning agent
 PLANNING_SYSTEM_PROMPT = """Generate 8-12 comprehensive Exa-optimized subqueries for deep research on the topic.
@@ -100,8 +112,9 @@ def planning_agent_tool(research_query: str) -> str:
     prompt = f"Research topic: {research_query}\n\nGenerate Exa-optimized subqueries for comprehensive research on this topic."
     
     try:
-        # Call the planning agent
-        response = planning_agent(prompt)
+        # Call the planning agent (with stdout redirected for MCP compatibility)
+        with redirect_stdout_to_stderr():
+            response = planning_agent(prompt)
         result_text = str(response)
         
         if Config.DEBUG:
@@ -137,6 +150,12 @@ def planning_agent_tool(research_query: str) -> str:
             "error": f"Planning error: {str(e)}",
             "subqueries": [],
         }, indent=2)
+
+
+
+
+
+
 
 
 

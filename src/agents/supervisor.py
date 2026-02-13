@@ -1,5 +1,7 @@
 """Supervisor Agent using Strands Agents SDK - Orchestrator for deep research."""
 
+import sys
+import contextlib
 from rich.console import Console
 from strands import Agent, tool
 from strands.models.openai import OpenAIModel
@@ -8,11 +10,21 @@ from src.agents.planning_agent import planning_agent_tool
 from src.agents.search_agent import web_search_retriever_tool
 from src.tools.nci_scoring_tool import NCIScoringTool
 
-# Initialize rich console
-console = Console()
+# Initialize rich console (use stderr to avoid interfering with MCP JSON protocol)
+console = Console(stderr=True)
 
 # Initialize NCI scoring tool
 nci_scorer = NCIScoringTool()
+
+@contextlib.contextmanager
+def redirect_stdout_to_stderr():
+    """Context manager to redirect stdout to stderr for MCP compatibility."""
+    old_stdout = sys.stdout
+    try:
+        sys.stdout = sys.stderr
+        yield
+    finally:
+        sys.stdout = old_stdout
 
 @tool
 def nci_analysis_tool(source_text: str, source_url: str = "") -> str:
@@ -191,6 +203,7 @@ Research Workflow:
             model=self.model,
             system_prompt=self.system_prompt,
             tools=tools,
+            callback_handler=None,  # Suppress intermediate output for MCP compatibility
         )
 
     def research(self, query: str) -> str:
@@ -204,10 +217,11 @@ Research Workflow:
             Comprehensive research report
         """
         console.print(f"[bold cyan]Starting research on:[/bold cyan] {query}")
-        
+
         try:
-            # Run the agent
-            response = self.agent(query)
+            # Run the agent with stdout redirected to stderr (MCP compatibility)
+            with redirect_stdout_to_stderr():
+                response = self.agent(query)
             return str(response)
         except Exception as e:
             console.print(f"[bold red]Error during research execution:[/bold red] {e}")

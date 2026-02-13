@@ -1,6 +1,8 @@
 """Search Agent - Specialized agent for web search execution and synthesis."""
 
+import sys
 import json
+import contextlib
 from typing import Dict, Any, List
 from strands import Agent, tool
 from strands.models.openai import OpenAIModel
@@ -9,7 +11,17 @@ from src.tools.exa_tool import ExaTool
 from src.tools.nci_scoring_tool import NCIScoringTool
 from rich.console import Console
 
-console = Console()
+console = Console(stderr=True)
+
+@contextlib.contextmanager
+def redirect_stdout_to_stderr():
+    """Context manager to redirect stdout to stderr for MCP compatibility."""
+    old_stdout = sys.stdout
+    try:
+        sys.stdout = sys.stderr
+        yield
+    finally:
+        sys.stdout = old_stdout
 
 # System prompt for the search agent
 SEARCH_SYSTEM_PROMPT = """You are a web search retrieval specialist and research synthesis expert.
@@ -274,9 +286,10 @@ Organize these findings into a comprehensive, detailed summary. Include:
 7. Data, statistics, or concrete examples when available
 
 Be thorough and detailed - this will feed into a comprehensive research report."""
-        
-        # Call the search agent to synthesize
-        response = search_agent(synthesis_prompt)
+
+        # Call the search agent to synthesize (with stdout redirected for MCP compatibility)
+        with redirect_stdout_to_stderr():
+            response = search_agent(synthesis_prompt)
         result_text = str(response)
         
         # Score the synthesis if NCI is enabled
