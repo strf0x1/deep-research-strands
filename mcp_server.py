@@ -5,6 +5,7 @@ from pathlib import Path
 from typing import Optional, List
 from fastmcp import FastMCP
 from fastmcp.exceptions import ToolError
+from mcp.server.transport_security import TransportSecuritySettings
 
 # Import existing components
 from src.agents.supervisor import SupervisorAgent
@@ -17,6 +18,11 @@ from src.utils.config import Config
 # Initialize MCP server
 mcp = FastMCP(
     name="deep-research-agent",
+    host="0.0.0.0",
+    port=8000,
+    transport_security=TransportSecuritySettings(
+        enable_dns_rebinding_protection=False,
+    ),
     instructions="""Deep Research Agent provides comprehensive, academic-quality research capabilities using:
 - Exa neural web search for high-quality source discovery
 - Multi-agent orchestration for query decomposition and synthesis
@@ -965,8 +971,7 @@ Replace {TOPIC} with your research topic. Best for health, political, financial,
 
 def main():
     """Main entry point for the MCP server."""
-    # Run the MCP server (default: STDIO transport)
-    mcp.run()
+    mcp.run(transport="streamable-http")
 
 
 if __name__ == "__main__":
